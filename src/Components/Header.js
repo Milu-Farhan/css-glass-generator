@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import gitIcon from "../images/github.svg";
 import Logo from "../images/logo.svg";
 
 const Header = () => {
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const navDiv = document.querySelector(".header");
+      const height = window.innerHeight;
+      var scroll = window.scrollY;
+
+      if (scroll > height - 80) {
+        navDiv.classList.add("fullNav");
+      } else {
+        navDiv.classList.remove("fullNav");
+      }
+    });
+  }, []);
+
+  //
   return (
     <div className="header">
       <div className="title">
